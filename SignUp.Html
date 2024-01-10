@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Font-Awsome-CDN-Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Google-Fonts-CDN-Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+ 
+<!-- Firebase-Authentication-Links -->
+<script src=" https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+<script src=" https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+<script src=" https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Login-Form-Using-Firebase</title>
+</head>
+
+<body style="font-family: 'Poppins', sans-serif;">
+  
+      <section>
+        <div class="grid grid-cols-1 lg:grid-cols-2 ">
+          <div class="flex items-center justify-center px-4 py-8 sm:px-6 sm:py-16 lg:px-8 lg:py-24 ">
+            <div class="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
+              <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign up</h2>
+              <p class="mt-2 text-base text-gray-600">Already have an account?
+                <a
+                  href="SignIn.html"
+                  title=""
+                  class="font-medium text-black transition-all duration-200 hover:underline">
+                  Sign In
+                </a>
+              </p>
+              <form action="#" method="POST" class="mt-8">
+                <div class="space-y-5">
+                  <div>
+                    <label for="name" class="text-base font-medium text-gray-900">Full Name</label>
+                    <div class="mt-2">
+                      <input
+                        class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 "
+                        type="text"
+                        placeholder="Full Name"
+                        id="name"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label for="email" class="text-base font-medium text-gray-900">Email address
+                    </label>
+                    <div class="mt-2">
+                      <input
+                        class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 "
+                        type="email"
+                        placeholder="Email"
+                        id="SignUpEmail" required
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex items-center justify-between">
+                      <label
+                        for="password"
+                        class="text-base font-medium text-gray-900"> Password
+                      </label>
+                    </div>
+                    <div class="mt-2">
+                      <input
+                        class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 "
+                        type="password"
+                        placeholder="Password"
+                        id="SignUpPass"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <button onclick="Signup()"
+                      type="button"
+                      class="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80">
+                      Create Account
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="ml-2"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <div class="mt-3 space-y-3">
+                <button
+                  type="button" onclick="signInWithGoogle()"
+                  class="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none" >
+                  <span class="mr-2 inline-block">
+                    <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/></svg>
+                  </span>
+                  Sign up with Google
+                </button>
+                <button onclick="SignInWithFacebook()"
+                  type="button"
+                  class="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none">
+                  <span class="mr-2 inline-block">
+                    <svg
+                      class="h-6 w-6 text-[#2563EB]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"></path>
+                    </svg>
+                  </span>
+                  Sign up with Facebook
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="h-full w-full hidden lg:block">
+            <img
+              class="mx-auto h-full w-full rounded-md object-cover "
+              src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1742&amp;q=80"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+   <script src="Authentication.js"></script>   
+</body>
+</html>
