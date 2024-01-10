@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Font Awesome CDN-Link -->
+    <link
+     rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+       <!-- Google-Font Link -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Poppins:wght@200;300;400;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Tailwind-CDN-Link -->
+  <script src="https://cdn.tailwindcss.com"></script>
+    <title>Books Form</title>
+</head>
+
+<body  style=" font-family: 'Montserrat', sans-serif;">
+    <form id="add-book-form">
+        <input type="text" id="add-title" placeholder="Add Title" class="border border-2 border-black">
+        <input type="text" id="add-author" placeholder="Add Author" class="border border-2 border-black">
+        <!-- Other input fields for adding new books -->
+    <input type="text" id="add-image" placeholder="Add Image URL" class="border border-2 border-black">
+    
+    <button id="add-button" class="border border-2 border-black">Add book</button> 
+    </form>
+    
+<br><br><br>
+<!-- <div class="card-container grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-0 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-4"></div>
+    -->
+    <div id="book-list" class=" grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-0 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-4">
+        <!-- This div will be populated with books dynamically -->
+    </div>
+<script src="BookForm.js" type="module"></script>
+</body>
+</html>
