@@ -1,8 +1,8 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js';
-import { getDatabase, ref, push, onValue } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js';
+import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js';
 
 document.addEventListener("DOMContentLoaded", function () {
-    
+
     const firebaseConfig = {
         databaseURL: "https://shopping-cart-f7ca7-default-rtdb.firebaseio.com/"
     };
@@ -10,39 +10,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const database = getDatabase(app)
     const BooksInDB = ref(database, "Books")  //(which database you working , what databse should call)
 
-    // const inputTitleEl = document.getElementById("add-title")
-    // const inputAuthorEl = document.getElementById("add-author")
-    // const inputImageEl = document.getElementById("add-image");
-    // const addButtonEl = document.getElementById("add-button")
-
-    // addButtonEl.addEventListener("click", function () {
-    //     let titleValue = inputTitleEl.value.trim();
-    //     let authorValue = inputAuthorEl.value.trim();
-    //     let imageUrlValue = inputImageEl.value.trim();
-    
-    //     if (titleValue === '' || authorValue === '' || imageUrlValue === '') {
-    //         alert('Fields cannot be empty! Please fill in both Title and Author.');
-    //     } else {
-    //         push(BooksInDB, {
-    //             title: titleValue,
-    //             author: authorValue,
-    //             imageUrl: imageUrlValue
-    //         });
-    //         console.log(`${titleValue} by ${authorValue} added to database`); //When Button Is Clicked , it will get the value of inputBox
-    //         // Clear input fields after adding the book
-    //         inputTitleEl.value = '';
-    //         inputAuthorEl.value = '';
-    //         inputImageEl.value = '';
-    //     }
-    // })
     // Function to display books in a card
     function displayBooks(books) {
-        const cardContainer = document.getElementById('card-container'); 
+        const cardContainer = document.getElementById('card-container');
         cardContainer.innerHTML = ""; // Clear the card container before displaying books
+
+        //session storage email name unique
+        // const newarr = bookkkkkkk.filter()
 
         books.forEach((book) => {
             const card = document.createElement('div');
-            card.innerHTML = `  <div class="w-full max-w-sm bg-white ms-4">
+            card.innerHTML = `<div class="w-full max-w-sm bg-white ms-4">
         <div class="flex">
             <div class="flex-shrink-0 mt-10 ">
               <img src="${book.imageUrl}" alt="Book Title" class="w-28 h-auto shadow-xl rounded"/>
@@ -71,27 +49,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <h5 class="text-lg font-semibold mt-1">${book.title}</h5>
                 <h6 class="text-sm text-gray-600 mb-4">${book.author}</h6>
+                <a href="${book.bookUrl}" class='underline text-blue-600 mb-3 text-xs hover:text-blue-800' target="_blank">Read Book</a>
                 <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
                <button type="button" class="rounded-md border border-black px-3 py-2 hover:bg-black hover:text-white text-xs font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                  Add To Cart</button>  
             </div>
         </div>
-    </div> 
-
-        `;
+    </div> `;
             cardContainer.appendChild(card);
         })
     }
-        // Fetch books from Firebase Realtime Database and display them
-        onValue(BooksInDB, (snapshot) => {
-            const booksData = snapshot.val();
-            if (booksData) {
-                const booksArray = Object.values(booksData);
-                displayBooks(booksArray); // Display books on the index.html page
-            } else {
-                console.log('No books available');
-            }
-        });   
+    // Fetch books from Firebase Realtime Database and display them
+    onValue(BooksInDB, (snapshot) => {
+        const booksData = snapshot.val();
+        if (booksData) {
+            const booksArray = Object.values(booksData);
+            displayBooks(booksArray); // Display books on the index.html page
+        } else {
+            console.log('No books available');
+        }
+    });
 });
 
 

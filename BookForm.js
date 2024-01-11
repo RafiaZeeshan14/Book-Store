@@ -21,15 +21,18 @@
         const titleValue = document.getElementById('add-title').value.trim();
         const authorValue = document.getElementById('add-author').value.trim();
         const imageUrlValue = document.getElementById('add-image').value.trim();
+        const BookUrlValue = document.getElementById('book-url').value.trim();
 
-        if (titleValue === '' || authorValue === '' || imageUrlValue === '') {
+        if (titleValue === '' || authorValue === '' || imageUrlValue === '' || BookUrlValue==='') {
             alert('Fields cannot be empty! Please fill in both Title and Author.');
         } else {
             const newBook = {
                 title: titleValue,
                 author: authorValue,
-                imageUrl: imageUrlValue
+                imageUrl: imageUrlValue,
+                BookUrl: BookUrlValue,
             };
+            console.log(newBook)
 
             const isBookDisplayed = displayedBooks.some(book => book.title === newBook.title && book.author === newBook.author);
 
@@ -37,7 +40,7 @@
                 displayedBooks.push(newBook);
 
                 const bookDiv = document.createElement('div');
-                bookDiv.innerHTML = `  <div class="w-full max-w-sm bg-white ms-4">
+                bookDiv.innerHTML = `<div class="w-full max-w-sm bg-white ms-4">
                 <div class="flex">
                     <div class="flex-shrink-0 mt-10 ">
                       <img src="${newBook.imageUrl}" alt="Book Title" class="w-28 h-auto shadow-xl rounded"/>
@@ -66,7 +69,10 @@
                         </div>
                         <h5 class="text-lg font-semibold mt-1">${newBook.title}</h5>
                         <h6 class="text-sm text-gray-600 mb-4">${newBook.author}</h6>
-                        <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                        <a href="${newBook.BookUrl}" class='underline mb-3 text-xs text-blue-600 hover:text-blue-800' target="_blank">
+                        Read Book
+                    </a>
+                       <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
                        <button type="button" class="rounded-md border border-black px-3 py-2 hover:bg-black hover:text-white text-xs font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                          Add To Cart</button>  
                     </div>
@@ -79,12 +85,13 @@
 
                 // Push new book data to Firebase
                 push(BooksInDBForm, newBook);
-                console.log(`${newBook.title} by ${newBook.author} added to database`);
+                console.log(`${newBook.title} by ${newBook.author}  added to database `);
 
                 // Clear form fields after adding the book
                 document.getElementById('add-title').value = '';
                 document.getElementById('add-author').value = '';
                 document.getElementById('add-image').value = '';
+                document.getElementById('book-url').value
             } else {
                 alert('This book is already displayed.');
             }

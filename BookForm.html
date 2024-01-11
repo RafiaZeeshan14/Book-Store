@@ -22,103 +22,76 @@
 </head>
 
 <body style=" font-family: 'Montserrat', sans-serif;">
-    <!-- <form id="add-book-form">
-        <input type="text" id="add-title" placeholder="Add Title" class="border border-2 border-black">
-        <input type="text" id="add-author" placeholder="Add Author" class="border border-2 border-black">
-  
-    <input type="text" id="add-image" placeholder="Add Image URL" class="border border-2 border-black">
-    
-    <button id="add-button" class="border border-2 border-black">Add book</button> 
-    </form> -->
 
-    <br><br><br>
+    <!-- ********************* Navbar-Section ******************** -->
+    <header class="relative w-full border-b bg-white pb-4 mt-3">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
+            <div class="inline-flex items-center space-x-2">
+                <span>
+                    <img src="Images/openbook.svg" alt="" class="h-6 w-6">
+                    </svg>
+                </span>
+                <span class="font-bold">Book Verse</span>
+            </div>
+            <div class="hidden lg:block">
+                <ul class="mr-8 inline-flex space-x-9">
+                    <li>
+                        <a href="/UserHomePage.html" class="text-sm font-semibold text-gray-800 hover:text-gray-900">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="text-sm font-semibold text-gray-800 hover:text-gray-900">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#collection" class="text-sm font-semibold text-gray-800 hover:text-gray-900">
+                            Collection
+                        </a>
+                    </li>
+                    <li class="flex items-center">
+                        <a href="#" class="text-sm font-semibold text-gray-800 hover:text-gray-900 flex items-center">
+                            My Books
+                            <span class="ml-2"><img src="Images/Shop-basket.png" alt="" class="w-5 h-5"></span>
+                        </a>
+                    </li>
 
+                </ul>
+            </div>
+            <div class="hidden lg:block">
+                <a href="index.html"><button type="button"
+                        class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">Sign
+                        Out <span aria-hidden="true">&rarr;</span></a>
 
-
-
-    <!-- <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 ">
-     
-            <div class="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 xl:col-span-6">
-
-                <div class=" overflow-y-auto overflow-x-hidden top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                  <div class="relative p-4 w-full max-w-md max-h-full">
-                   
-                      <div class="relative  rounded-lg shadow bg-opacity-30 bg-black">
-                     
-                          <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                              <h3 class="text-lg font-semibold text-gray-900 ">
-                                  Add A New Book
-                              </h3>
-      
-                          </div>
-                        
-                          <form id="add-book-form" class="p-4 md:p-5">
-                              <div class="grid gap-4 mb-4 grid-cols-2">
-                                  <div class="col-span-2">
-                                      <label for="title"
-                                          class="block mb-2 text-sm font-medium text-gray-900 ">Book
-                                          Title</label>
-                                      <input id="add-title" type="text" name="title" id="title"
-                                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                          placeholder="Type Book Title" required="">
-                                  </div>
-                                  <div class="col-span-2">
-                                      <label for="Aname"
-                                          class="block mb-2 text-sm font-medium text-gray-900 ">Author
-                                          Name</label>
-                                      <input id="add-author" type="text" name="Aname" id="Aname"
-                                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                          placeholder="Type Author Name " required="">
-                                  </div>
-                                  <div class="col-span-2">
-                                      <label for="add-image"
-                                          class="block mb-2 text-sm font-medium text-gray-900 ">Product
-                                          ImageURL</label>
-                                      <input id="add-image" rows="4"
-                                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                          placeholder="Paste Image URL here" />
-                                  </div>
-                              </div>
-                              <button type="submit" id="add-button"
-                                  class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                  <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                      xmlns="http://www.w3.org/2000/svg">
-                                      <path fill-rule="evenodd"
-                                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                          clip-rule="evenodd"></path>
-                                  </svg>
-                                  Add Your Book
-                              </button>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-      
-               
-          
-              </div>
-        
-        
-        
-        <div class="relative lg:col-span-5 lg:-mr-8 xl:col-span-6" id="book-list">
-        
+                </button>
+            </div>
+            <div class="lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="h-6 w-6 cursor-pointer">
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                </svg>
+            </div>
         </div>
-      </div> -->
+    </header>
 
-
+    <!-- ************** Book-Form Section **************************8 -->
     <section>
-        <div class="grid grid-cols-1 lg:grid-cols-2">
-            <div class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-21">
-                
+        <div class="grid grid-cols-1 lg:grid-cols-2 ">
+            <div class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-5 lg:px-8">
+
                 <div class="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
-                    
-                    <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">Add A New Book</h2>
+
+                    <h2 class="text-3xl font-bold leading-tight text-black sm:text-3xl">Add A New Book : </h2>
 
                     <form action="#" id="add-book-form" class="mt-8">
-                        <div class="space-y-5">
+                        <div class="space-y-4">
                             <div>
-                                <label  for="add-title" class="text-base font-medium text-gray-900">Book Title</label>
-                                <div class="mt-2">
+                                <label for="add-title" class="text-base font-medium text-gray-900">Book Title</label>
+                                <div class="mt-1">
                                     <input id="add-title"
                                         class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                                         type="text" placeholder="Type Book Title" />
@@ -126,9 +99,10 @@
                             </div>
                             <div>
                                 <div class="flex items-center justify-between">
-                                    <label  for="add-author" class="text-base font-medium text-gray-900"> Author Name</label>
+                                    <label for="add-author" class="text-base font-medium text-gray-900"> Author
+                                        Name</label>
                                 </div>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <input id="add-author"
                                         class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                                         type="text" placeholder="Type Author Name" />
@@ -136,17 +110,25 @@
                             </div>
                             <div>
                                 <label for="add-image" class="text-base font-medium text-gray-900">ImageURL</label>
-                                <div class="mt-2">
-                                  <input id="add-image" rows="4"
-                                    class="flex h-16 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                                    type="text"
-                                    placeholder="Type Image URL"/>
+                                <div class="mt-1">
+                                    <input id="add-image" rows="4"
+                                        class="flex h-16 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        type="text" placeholder="Type Image URL" />
                                 </div>
-                              </div>
-
+                            </div>
                             <div>
-                                <button  id="add-button" 
-                                class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <label for="book-URL" class="text-base font-medium text-gray-900">Book URL</label>
+                                <div class="mt-1">
+                                    <input id="book-url" rows="4"
+                                        class="flex h-16 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        type="text" placeholder="Type Book URL" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button id="add-button"
+                                class="text-white inline-flex mt-2 items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -155,39 +137,20 @@
                                 </svg>
                                 Add Your Book
                             </button>
-                            </div>
                         </div>
                     </form>
                 </div>
+
             </div>
-            <div class="overflow-hidden grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-3 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-2" id="book-list">
-                
-            </div>
+            <div id="book-list"
+            class="overflow-hidden grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-3 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-2">
+
         </div>
+        </div>
+        
     </section>
 
-
     <script src="BookForm.js" type="module"></script>
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div id="book-list"
-    class=" grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-0 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-4">
-
-</div> -->
-<script src="BookForm.js" type="module"></script>
 </body>
 
 </html>
