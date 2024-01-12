@@ -32,7 +32,7 @@
                 imageUrl: imageUrlValue,
                 BookUrl: BookUrlValue,
             };
-            console.log(newBook)
+            
 
             const isBookDisplayed = displayedBooks.some(book => book.title === newBook.title && book.author === newBook.author);
 
@@ -72,7 +72,7 @@
                         <a href="${newBook.BookUrl}" class='underline mb-3 text-xs text-blue-600 hover:text-blue-800' target="_blank">
                         Read Book
                     </a>
-                       <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                       <div class="flex flex-col space-y-6 md:flex-row md:space-x-2 md:space-y-0">
                        <button type="button" class="rounded-md border border-black px-3 py-2 hover:bg-black hover:text-white text-xs font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                          Add To Cart</button>  
                     </div>
@@ -91,7 +91,7 @@
                 document.getElementById('add-title').value = '';
                 document.getElementById('add-author').value = '';
                 document.getElementById('add-image').value = '';
-                document.getElementById('book-url').value
+                document.getElementById('book-url').value = '';
             } else {
                 alert('This book is already displayed.');
             }
