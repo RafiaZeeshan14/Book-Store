@@ -23,7 +23,7 @@
         const imageUrlValue = document.getElementById('add-image').value.trim();
         const BookUrlValue = document.getElementById('book-url').value.trim();
 
-        if (titleValue === '' || authorValue === '' || imageUrlValue === '' || BookUrlValue==='') {
+        if (titleValue === '' || authorValue === '' || imageUrlValue === '' ) {
             alert('Fields cannot be empty! Please fill in both Title and Author.');
         } else {
             const newBook = {
@@ -33,8 +33,23 @@
                 BookUrl: BookUrlValue,
             };
             
-
             const isBookDisplayed = displayedBooks.some(book => book.title === newBook.title && book.author === newBook.author);
+
+            bookList.addEventListener("click", function (event) {
+                const readBookLink = event.target.closest('.read-book-link');
+                if (readBookLink) {
+                    event.preventDefault();
+        
+                    const bookUrl = readBookLink.getAttribute('href');
+        
+                    // Check if the book has a valid URL
+                    if (bookUrl) {
+                        window.open(bookUrl, '_blank');
+                    } else {
+                        alert('No link available to read the book.');
+                    }
+                }
+            });
 
             if (!isBookDisplayed) {
                 displayedBooks.push(newBook);
@@ -69,7 +84,7 @@
                         </div>
                         <h5 class="text-lg font-semibold mt-1">${newBook.title}</h5>
                         <h6 class="text-sm text-gray-600 mb-4">${newBook.author}</h6>
-                        <a href="${newBook.BookUrl}" class='underline mb-3 text-xs text-blue-600 hover:text-blue-800' target="_blank">
+                        <a href="${newBook.BookUrl}" class='read-book-link underline mb-3 text-xs text-blue-600 hover:text-blue-800' target="_blank">
                         Read Book
                     </a>
                        <div class="flex flex-col space-y-6 md:flex-row md:space-x-2 md:space-y-0">
