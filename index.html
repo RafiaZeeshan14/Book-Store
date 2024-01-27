@@ -285,7 +285,25 @@
     </div>
   </div>
 </section>
-  <script src="index.js" type="module"></script>
-  <script src="Modal.js"></script>  
+  <script src="./JS Files/index.js" type="module"></script>
 </body>
+<script>
+  function showDialog(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    let dialog = document.getElementById('dialog');
+    dialog.classList.remove('hidden');
+    setTimeout(() => {
+      dialog.classList.remove('opacity-0');
+    }, 20);
+  }
+
+  function hideDialog() {
+    let dialog = document.getElementById('dialog');
+    dialog.classList.add('opacity-0');
+    setTimeout(() => {
+      dialog.classList.add('hidden');
+    }, 500);
+  }
+</script>
 </html>

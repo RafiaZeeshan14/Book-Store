@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Font Awsome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+  <title>Shopping</title>
+</head>
+<body style="font-family: 'Poppins', sans-serif">
+    <a href="/UserHomePage.html">
+        <div class="flex ">
+            <p class="m-5 ml-7 font-medium">
+                <i style='font-size:15px' class='fas mt-2'>&#xf053;</i> Back</p>
+        </div>
+   
+        </a>
+    <h2 id="username-display" class="text-4xl font-semibold flex justify-center p-6"></h2>
+    <p class="flex justify-center " > &emsp;&emsp;&emsp; " Greetings fellow reader ! "<br/>  Reconnect with your favorite books here. </p>
+    <div id="my-books-list"
+    class="mb-6 overflow-hidden grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-0 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-4">
+
+  </div>
+
+    <script src="./JS Files/myBook.js" type="module"></script>
+</body>
+</html>

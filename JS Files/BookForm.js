@@ -1,18 +1,42 @@
 
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js';
-    import { getDatabase, ref, push, onChildAdded } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js';
-    
- document.addEventListener("DOMContentLoaded", function () {
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+import { getDatabase, ref, push, set, onChildAdded } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js';
+
+document.addEventListener("DOMContentLoaded", function () {
     const firebaseConfig = {
-        databaseURL: "https://shopping-cart-f7ca7-default-rtdb.firebaseio.com/"
+        apiKey: "AIzaSyCog3iTo-dbPq_32zI0UUq_W5-T9JOW8gk",
+        authDomain: "shopping-cart-f7ca7.firebaseapp.com",
+        databaseURL: "https://shopping-cart-f7ca7-default-rtdb.firebaseio.com",
+        projectId: "shopping-cart-f7ca7",
+        storageBucket: "shopping-cart-f7ca7.appspot.com",
+        messagingSenderId: "678738300841",
+        appId: "1:678738300841:web:2eedd3fe4859a2e861beb8"
     };
     const app = initializeApp(firebaseConfig)
     const database = getDatabase(app)
+    const auth = getAuth(app);
     const BooksInDBForm = ref(database, "Books")
-    
+
     const bookList = document.getElementById('book-list');
     const addBookForm = document.getElementById('add-book-form');
     let displayedBooks = []; // Array to keep track of displayed books
+    let user;
+
+
+    onAuthStateChanged(auth, (_user) => {
+        user = _user;
+        if (user) {
+            // User is logged in
+            console.log("User is logged in:", user.uid);
+
+        } else {
+            // User is logged out
+            console.log("User is logged out");
+            // Clear any data or UI related to the user
+        }
+    });
 
     addBookForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -23,7 +47,7 @@
         const imageUrlValue = document.getElementById('add-image').value.trim();
         const BookUrlValue = document.getElementById('book-url').value.trim();
 
-        if (titleValue === '' || authorValue === '' || imageUrlValue === '' ) {
+        if (titleValue === '' || authorValue === '' || imageUrlValue === '') {
             alert('Fields cannot be empty! Please fill in both Title and Author.');
         } else {
             const newBook = {
@@ -32,16 +56,20 @@
                 imageUrl: imageUrlValue,
                 BookUrl: BookUrlValue,
             };
-            
+
             const isBookDisplayed = displayedBooks.some(book => book.title === newBook.title && book.author === newBook.author);
+
+            const userBooksRef = ref(database, `Users/${user.uid}/userBooks`);
+            const newBookRef = push(userBooksRef);
+            set(newBookRef, newBook);
 
             bookList.addEventListener("click", function (event) {
                 const readBookLink = event.target.closest('.read-book-link');
                 if (readBookLink) {
                     event.preventDefault();
-        
+
                     const bookUrl = readBookLink.getAttribute('href');
-        
+
                     // Check if the book has a valid URL
                     if (bookUrl) {
                         window.open(bookUrl, '_blank');
@@ -58,7 +86,7 @@
                 bookDiv.innerHTML = `<div class="w-full max-w-sm bg-white ms-4">
                 <div class="flex">
                     <div class="flex-shrink-0 mt-10 ">
-                      <img src="${newBook.imageUrl}" alt="Book Title" class="w-28 h-auto shadow-xl rounded"/>
+                      <img src="${newBook.imageUrl}" alt="Book Image" class="w-28 h-auto shadow-xl rounded"/>
                     </div>
             
                     <div class="flex flex-col justify-between ml-4">
@@ -87,10 +115,10 @@
                         <a href="${newBook.BookUrl}" class='read-book-link underline mb-3 text-xs text-blue-600 hover:text-blue-800' target="_blank">
                         Read Book
                     </a>
-                       <div class="flex flex-col space-y-6 md:flex-row md:space-x-2 md:space-y-0">
-                       <button type="button" class="rounded-md border border-black px-3 py-2 hover:bg-black hover:text-white text-xs font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
-                         Add To Cart</button>  
-                    </div>
+                      <button type="button" class="rounded-md border border-black px-3 py-2 hover:bg-black hover:text-white text-xs font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+                     Add To Cart
+                          </button>
+
                 </div>
             </div> 
         
@@ -120,6 +148,6 @@
     });
 });
 
-  
+
 
 

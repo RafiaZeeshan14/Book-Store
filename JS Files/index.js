@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             card.innerHTML = `<div class="w-full max-w-sm bg-white ms-4">
         <div class="flex">
             <div class="flex-shrink-0 mt-10 ">
-              <img src="${book.imageUrl}" alt="Book Title" class="w-28 h-auto shadow-xl rounded"/>
+              <img src="${book.imageUrl}" alt="Book Image" class="w-28 h-auto shadow-xl rounded"/>
             </div>
     
             <div class="flex flex-col justify-between ml-4">
