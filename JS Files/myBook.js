@@ -20,7 +20,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const myBooksList = document.getElementById('my-books-list');
     const usernameDisplay = document.getElementById('username-display');
+    const my_modal_5 = document.getElementById('my_modal_5');
 
+    function showModalIfLinkUnavailable() {
+        const modalContent = my_modal_5.querySelector('.modal-box');
+        modalContent.innerHTML = `
+            <h3 class="font-bold text-lg underline">Link Unavailable !</h3>
+            <p class="py-4 font-medium">No link provided for this book to read.</p>
+            <div class="modal-action">
+                <button class="btn bg-slate-100 p-2 text-sm font-semibold rounded-lg" onclick="my_modal_5.close()">Close</button>
+            </div>
+        `;
+        my_modal_5.showModal();
+    }
+
+    function attachReadBookLinkListener() {
+        console.log('Attaching event listener for "Read Book" link');
+
+        document.getElementById('my-books-list').addEventListener("click", function (event) {
+            console.log('Click event on my-books-list');
+            const readBookLink = event.target.closest('.read-book-link');
+
+            if (readBookLink) {
+                event.preventDefault();
+                const bookUrl = readBookLink.getAttribute('href');
+
+                if (bookUrl) {
+                    console.log('Opening book URL:', bookUrl);
+                    window.open(bookUrl, '_blank');
+                } else {
+                    console.log('No link available to read the book.');
+                    showModalIfLinkUnavailable();
+                }
+            }
+        });
+    }
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -85,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+    attachReadBookLinkListener();
 });
 
 

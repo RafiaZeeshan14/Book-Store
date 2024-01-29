@@ -33,8 +33,21 @@
       <p class="z-10 flex justify-center text-sm sm:text-lg absolute left-1/2 transform -translate-x-1/2 text-slate-100  mt-8"> &emsp;&emsp;&emsp; " Greetings fellow reader ! "<br /> Reconnect with your favorite
         books here. </p>
       <div id="my-books-list"
-        class="z-10 absolute bg-transparent mt-16  overflow-hidden grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-0 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-4">
+        class="z-10 absolute bg-transparent mt-28  overflow-hidden grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-0 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-4">
       </div>
+      <!-- <button class="btn" onclick="my_modal_5.showModal()"></button> -->
+      <dialog id="my_modal_5" class="modal backdrop-blur-lg bg-white/70 rounded-2xl modal-bottom sm:modal-middle">
+        <div class="modal-box p-6 px-10 ">
+          <h3 class="font-bold text-lg underline">Link Unavailable !</h3>
+          <p class="py-4">no link provided for this book to read </p>
+          <div class="modal-action">
+            <form method="dialog" class=" flex justify-end  ">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn bg-slate-100 p-2 text-sm font-semibold rounded-lg">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   <script src="./JS Files/myBook.js" type="module"></script>
 </body>
