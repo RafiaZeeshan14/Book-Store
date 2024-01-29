@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const bookData = childSnapshot.val();
                     // Create HTML elements to display the book
                     const bookDiv = document.createElement('div');
-                    bookDiv.innerHTML = `<div class="w-full max-w-sm bg-white ms-4">
+                    bookDiv.innerHTML = `<div class="w-full max-w-sm  ms-4">
                     <div class="flex">
                         <div class="flex-shrink-0 mt-10 ">
                           <img src="${bookData.imageUrl}" alt="Book image" class="w-28 h-auto shadow-xl rounded"/>
@@ -71,27 +71,20 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </svg>
                             </div>
                             </div>
-                            <h5 class="text-lg font-semibold mt-1">${bookData.title}</h5>
-                            <h6 class="text-sm text-gray-600 mb-4">${bookData.author}</h6>
+                            <h5 class="text-lg font-semibold mt-1 dark:text-gray-200">${bookData.title}</h5>
+                            <h6 class="text-sm text-gray-600 mb-4 dark:text-gray-100">${bookData.author}</h6>
                             <a href="${bookData.BookUrl}" class='read-book-link underline mb-3 text-xs text-blue-600 hover:text-blue-800' target="_blank">
                             Read Book
                         </a>
                         
                     </div>
                 </div> 
-            
-                    `;
-
+             `;
                     myBooksList.appendChild(bookDiv);
                 });
             });
         }
     });
-    function addToCart(userId, title, author, imageUrl, bookUrl) {
-        console.log('addToCart function called with:', userId, title, author, imageUrl, bookUrl);
-    
-        // ... rest of your code
-    }
 });
 
 
