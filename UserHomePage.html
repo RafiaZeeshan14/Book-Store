@@ -14,6 +14,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <title>UserHomePage</title>
+  <style>
+    html {
+  scroll-behavior: smooth;
+}
+
+  </style>
 </head>
 
 <body style="font-family: 'Poppins', sans-serif">
@@ -55,8 +61,14 @@
               </a>
             </li>
             <li>
+              <a href="Wishlist.html" class="text-sm font-semibold text-gray-800 tracking-widest relative group">
+                Wishlist
+                <div class="w-full h-0.5 bg-black/80 scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+              </a>
+            </li>
+            <li>
               <a href="#contact" class="text-sm font-semibold text-gray-800 tracking-widest relative group">
-                Cotact Us
+                Contact Us
                 <div class="w-full h-0.5 bg-black/80 scale-x-0 group-hover:scale-x-100 transition-transform"></div>
               </a>
             </li>
@@ -150,26 +162,36 @@
 
   <!--***************** About Section  ************************ -->
 
+
   <section class="overflow-hidden" id="about">
     <div class="relative">
-      <video src="Images/library-video.mp4" autoplay muted loop class="w-full h-screen z-[1] object-cover "></video>
+      <video src="Images/library-video.mp4" autoplay muted loop class="w-full h-screen z-[1] object-cover"></video>
       <div class="video-overlay"></div>
-      <div
-        class="absolute top-0 left-0 m-1 sm:m-10 mt-16 p-5 rounded-2xl w-96 bg-black/60 flex flex-col justify-center items-center text-white">
-        <h1 class=" font-bold text-5xl ">About Us</h1>
-        <!-- Add your content below the heading -->
-        <p class="mt-6"> Welcome to <b class="text-yellow-600">BookVerse Store</b> <br> - a sanctuary for book lovers !
-        </p><br>
-        <p class="text-white">At BookVerse, we are passionate about connecting readers with their favorite books <br>
-          fostering a community of book enthusiasts, and curating an extensive collection of literary works that inspire
-          and enrich lives. <br>
-          Our mission is to provide a platform <br> where book lovers can explore new titles, share their experiences,
-          and indulge in the endless wonders that books offer. <br>
-          Join us on this literary journey as we embark on a quest to discover, learn, and explore the extraordinary
-          world of books !</p>
+      <div class="absolute top-0 left-0 m-1 sm:m-10 lg:mt-0 p-5 rounded-2xl w-full h-full flex flex-col justify-center items-center text-white space-x-10">
+        <!-- Flex container for both quote and about us -->
+        <div class="flex justify-evenly h-full  ">
+          <!-- Quote Section -->
+          <div class="   rounded-2xl w-1/3 flex flex-col justify-center items-start">
+            <p class="text-xl font-sans font-bold italic bg-black/20 p-5 rounded-lg">
+              "A reader lives a thousand lives before he dies. The man who never reads lives only one." 
+              <br>— George R.R. Martin
+            </p>
+          </div>
+          <!-- About Us Section -->
+          <div class="bg-black/60 p-5 rounded-2xl w-1/3 flex flex-col justify-center items-center">
+            <h1 class="font-bold text-5xl">About Us</h1>
+            <p class="mt-6">Welcome to <b class="text-yellow-600 tracking-widest relative group">BOOKVERSE Store</b> <br> - a sanctuary for book lovers!</p><br>
+            <p class="text-white font-light  tracking-widest relative group">
+              At BookVerse, we are passionate about connecting readers with their favorite books, fostering a community of book enthusiasts, and curating an extensive collection of literary works that inspire and enrich lives.<br>
+              Our mission is to provide a platform where book lovers can explore new titles, share their experiences, and indulge in the endless wonders that books offer.<br>
+              Join us on this literary journey as we embark on a quest to discover, learn, and explore the extraordinary world of books!
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+  
 
   <br><br><br>
 
@@ -182,7 +204,7 @@
     informative texts, and discover hidden treasures waiting to be explored.
   </p>
   <div id="card-container"
-    class="mb-6 overflow-hidden grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-0 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-4">
+    class="mb-6 overflow-hidden grid grid-cols-1 md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-2 min-[1025px]:grid-cols-2 min-[1260px]:grid-cols-4">
 
   </div>
   <!-- Open the modal using ID.showModal() method -->
@@ -221,13 +243,13 @@
                   <div class="flex-1 px-2">
                     <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
                     <input type="text" placeholder="John Doe"
-                      class="block w-full px-5 py-3 mt-2 text-white placeholder-gray-400 bg-transparent border border-gray-400 rounded-md  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                      class="block w-full px-5 py-3 mt-2 text-white placeholder-gray-400 placeholder:text-xs bg-transparent border border-gray-400 rounded-md  focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                   </div>
 
                   <div class="flex-1 px-2 mt-4 md:mt-0">
                     <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
                     <input type="email" placeholder="johndoe@example.com"
-                      class="block w-full px-5 py-3 mt-2 text-white placeholder-gray-400 bg-transparent border border-gray-400 rounded-md focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                      class="block w-full px-5 py-3 mt-2 text-white placeholder-gray-400 placeholder:text-xs bg-transparent border border-gray-400 rounded-md focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                   </div>
                 </div>
 
@@ -239,7 +261,7 @@
                 </div>
 
                 <button
-                  class="w-full px-6 py-3 mt-3 sm:mt-4 text-sm font-medium tracking-wide text-black capitalize transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                  class="w-full px-6 py-3 mt-3 sm:mt-4 text-sm font-medium tracking-wide text-black capitalize transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-gray-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                   get in touch
                 </button>
               </form>
@@ -255,7 +277,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <span class="mx-2 text-white truncate w-72 ">
-                    Cecilia Chapman 711-2880 Nulla
+                    North Town 711-2880 Nulla
                     St. Mankato Mississippi 96522
                   </span>
                 </p>
@@ -273,7 +295,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span class="mx-2 text-white truncate w-72 ">acb@example.com</span>
+                  <span class="mx-2 text-white truncate w-72 ">abc@example.com</span>
                 </p>
               </div>
             </div>
