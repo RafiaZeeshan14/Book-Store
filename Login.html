@@ -25,6 +25,25 @@
 
 
       <section>
+        <!-- Modal -->
+<div id="errorModal" class="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm hidden">
+  <div class="bg-white rounded-xl shadow-2xl p-8 w-96 max-w-md transform transition-transform duration-300 scale-95">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-2xl font-bold text-gray-800">Oops!</h2>
+      <!-- <button id="closeModal" class="text-gray-500 hover:text-gray-800 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button> -->
+    </div>
+    <p id="errorMessage" class="text-red-500 text-center mb-6"></p>
+    <button id="closeModal" class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300">
+      Close
+    </button>
+  </div>
+</div>
+
+
         <div class="grid grid-cols-1 lg:grid-cols-2">
           <div class="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
             <div class="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">

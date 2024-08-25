@@ -13,11 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to display books in a card
     function displayBooks(books) {
         const cardContainer = document.getElementById('card-container');
-        cardContainer.innerHTML = ""; // Clear the card container before displaying books
-
-        //session storage email name unique
-        // const newarr = bookkkkkkk.filter()
-
+        cardContainer.innerHTML = ""; 
         books.forEach((book) => {
             const card = document.createElement('div');
             card.innerHTML = `<div class="w-full max-w-sm ">

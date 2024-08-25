@@ -24,10 +24,26 @@ function Signup() {
   const enteredUsername = document.getElementById('username').value;
   var SignUpEmail = document.getElementById("SignUpEmail");
   var SignUpPass = document.getElementById("SignUpPass");
+  var errorModal = document.getElementById("errorModal");
+  var errorMessageElement = document.getElementById("errorMessage");
+  var closeModal = document.getElementById("closeModal");
+
+
+   // Function to show the modal
+   function showModal(message) {
+    errorMessageElement.textContent = message;
+    errorModal.classList.remove("hidden");
+  }
+
+  // Function to hide the modal
+  closeModal.addEventListener("click", function() {
+    errorModal.classList.add("hidden");
+  });
+
 
   if (SignUpEmail.value.trim() === '' || SignUpPass.value.trim() === '') {
     // Display an alert or a modal prompting the user to enter email and password
-    alert('Please enter your email and password');
+    showModal('Please enter your email and password');
     return; // Exit the function if email or password is empty
   }
 
@@ -52,21 +68,32 @@ function Signup() {
       var errorCode = error.code;
       var errorMessage = error.message;
       console.error("Signup error:", errorMessage);
-      // Handle signup errors if needed
+      showModal(errorMessage);
     });
 
 
 }
 
-
-
 function login() {
   var SignInEmail = document.getElementById("SignInEmail");
   var SignInPass = document.getElementById("SignInPass");
-  console.log(SignInEmail.value, SignInPass.value)
+  var errorModal = document.getElementById("errorModal");
+  var errorMessageElement = document.getElementById("errorMessage");
+  var closeModal = document.getElementById("closeModal");
+
+  // Function to show the modal
+  function showModal(message) {
+    errorMessageElement.textContent = message;
+    errorModal.classList.remove("hidden");
+  }
+
+  // Function to hide the modal
+  closeModal.addEventListener("click", function() {
+    errorModal.classList.add("hidden");
+  });
+
   if (SignInEmail.value.trim() === '' || SignInPass.value.trim() === '') {
-    // Display an alert or a modal prompting the user to enter email and password
-    alert('Please enter your email and password');
+    showModal('Please enter your email and password');
     return; // Exit the function if email or password is empty
   }
 
@@ -79,10 +106,9 @@ function login() {
       window.location.href = 'UserHomePage.html';
     })
     .catch((error) => {
-      var errorCode = error.code;
       var errorMessage = error.message;
       console.error("Login error:", errorMessage);
-      // Handle login errors if needed
+      showModal("Invalid Credentials"); 
     });
 }
 

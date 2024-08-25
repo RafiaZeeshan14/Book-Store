@@ -61,7 +61,7 @@
               </a>
             </li>
             <li>
-              <a href="Wishlist.html" class="text-sm font-semibold text-gray-800 tracking-widest relative group">
+              <a href="#" class="text-sm font-semibold text-gray-800 tracking-widest relative group">
                 Wishlist
                 <div class="w-full h-0.5 bg-black/80 scale-x-0 group-hover:scale-x-100 transition-transform"></div>
               </a>
@@ -366,12 +366,36 @@
           </div>
         </div>
       </div>
+      <button id="scrollToTopBtn" class="fixed bottom-10 right-10 z-50 hidden p-3 rounded-full bg-yellow-600 text-white hover:bg-yellow-700 focus:outline-none focus:ring focus:ring-yellow-500">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
     </div>
   </section>
 
   <script src="/JS Files/index.js" type="module"></script>
   <script src="/JS Files/BookForm.js " type="module"></script>
   <script>
+      // Get the button
+      let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollToTopBtn.classList.remove("hidden");
+  } else {
+    scrollToTopBtn.classList.add("hidden");
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+scrollToTopBtn.addEventListener("click", function() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+});
     document.getElementById('menuToggle').addEventListener('click', function () {
       var menuIcon = document.getElementById('menuToggle').querySelector('svg');
       var collapsibleMenu = document.getElementById('collapsibleMenu');
