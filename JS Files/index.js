@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <a href="${book.BookUrl}" class='read-book-link underline text-blue-600 mb-3 text-xs hover:text-blue-800 rel="noopener noreferrer" target="_blank" ' >Read Book</a> 
              
                 <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 ">
-               <button type="button" class="add-to-heart-button w-32 rounded-md border border-black px-3 py-2 hover:bg-black hover:text-white text-xs font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black" data-book='${JSON.stringify(book)}'>
-                 Add To  <span class='ml-2'>&#10084;</span>  
+               <button type="button" class=" w-32 rounded-md border border-black px-3 py-2 hover:bg-black hover:text-white text-xs font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black" '>
+                 Give it  <span class='ml-2'>&#10084;</span>  
                </button>  
                  </div>
             </div>
