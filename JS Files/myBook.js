@@ -89,10 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
           const bookData = childSnapshot.val();
           // Create HTML elements to display the book
           const bookDiv = document.createElement("div");
-          bookDiv.innerHTML = `<div class="w-full max-w-sm  ms-4">
-                    <div class="flex  p-3 bg-black/40 shadow-lg rounded-lg overflow-hidden mb-2 h-52 border-[1px] border-white/35 ">
+          bookDiv.innerHTML = `<div class="  ms-4">
+                    <div class="flex  p-3 bg-black/40 shadow-lg rounded-xl overflow-hidden mb-2 h-52   ">
                         <div class="flex-shrink-0  ">
-                          <img src="${bookData.imageUrl}" alt="Book image" class="w-28 h-auto shadow-xl rounded text-white"/>
+                          <img src="${bookData.imageUrl}" alt="Book image" class="w-28 text-xs h-auto shadow-xl rounded text-white"/>
                         </div>
                 
                         <div class="flex flex-col justify-between ml-4">
