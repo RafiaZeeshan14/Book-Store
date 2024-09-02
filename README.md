@@ -1,7 +1,7 @@
 # Bookstore Project Using Firebase Realtime Database
 
 ## Live Demo 
-https://bejewelled-gnome-0daf00.netlify.app/
+https://bookstore-010.netlify.app
 
 ## Description
 This project is a bookstore application that utilizes Firebase Realtime Database to store books to read. 
